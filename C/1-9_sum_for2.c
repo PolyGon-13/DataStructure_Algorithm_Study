@@ -1,3 +1,4 @@
+//n이 음수인 경우를 고려
 #include <stdio.h>
 
 int main()
