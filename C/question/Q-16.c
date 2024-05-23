@@ -28,12 +28,28 @@ void triangleLU(int n) // 왼쪽 위가 직각인 이등변 삼각형
 
 void triangleRU(int n) // 오른쪽 위가 직각인 이등변 삼각형 
 {
-	return 0;
+	for(i=1;i<=n;i++)
+	{
+		for(j=1;j<=n;j++)
+		{
+			if(i<=j) printf("*");
+			else printf(" ");
+		}
+		putchar('\n');
+	}
 }
 
 void triangleRB(int n) // 오른쪽 아래가 직각인 이등변 삼각형 
 {
-	return 0;
+	for(i=1;i<=n;i++)
+	{
+		for(j=1;j<=n;j++)
+		{
+			if(i+j<n+1) printf(" ");
+			else printf("*");
+		}
+		putchar('\n');
+	}
 }
 
 int main()
@@ -45,6 +61,6 @@ int main()
 		scanf("%d",&n);
 	}while(n<=0);
 	
-	triangleLU(n);
+	triangleRB(n);
 	return 0;
 }
