@@ -32,7 +32,7 @@ int main()
 	
 	do
 	{
-		unsigned no;
+		unsigned no; // unsigned로만 명시하여 변수를 선언하면 unsigned int와 같음.
 		int cd;
 		char cno[512];
 		
