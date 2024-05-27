@@ -2,7 +2,7 @@
 
 int main()
 {
-	int prime[5000];
+	int prime[500];
 	int ptr=0;
 	unsigned long counter=0;
 	int n,i;
