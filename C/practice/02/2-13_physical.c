@@ -52,7 +52,7 @@ int main()
 	puts("    이름    키  시력");
 	puts("-------------------");
 	for(i=0;i<nx;i++)
-		printf("%-18.18s%4d%5.1f\n",x[i].name,x[i].height,x[i].vision);
+		printf("%-18.18s %4d %5.1f\n",x[i].name,x[i].height,x[i].vision);
 	printf("\n평균 키: %5.1f cm\n",ave_height(x,nx));
 	dist_vision(x,nx,vdist);
 	printf("\n시력 분포\n");
@@ -61,3 +61,7 @@ int main()
 	
 	return 0;
 }
+// %-18.18s
+// -는 왼쪽 정렬을 의미
+// 18은 최소너비를 의미(출력할 문자열의 길이가 18보다 짧으면 나머지 부분은 공백으로 채워짐)
+// 두 번째 18은 최대 출력 길이를 의미(출력할 문자열이 18보다 길면 18자까지 잘라서 출력됨)
