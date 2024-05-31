@@ -39,8 +39,9 @@ int main()
 		{
 			printf("x[%d]: ",i);
 			scanf("%d",&x[i]);
-		} while(x[i]<x[i-1]);
+		} while(x[i]<x[i-1]); // 이진 검색은 배열이 정렬되어 있음을 가정하므로 바로 앞의 값보다 작으면 다시 입력해야 함.
 	}
+	
 	printf("검색값 : ");
 	scanf("%d",&ky);
 	int idx=bin_search(x,nx,ky);
