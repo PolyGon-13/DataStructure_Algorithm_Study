@@ -11,6 +11,7 @@ int int_cmp(const int *a,const int *b)
 		return 0;
 	
 	// return *a<*b ? -1: *a>*b ? 1 : 0;
+	// return *a - *b -> 오버플로의 위험이 있기에 사용 지양
 }
 
 int main()
