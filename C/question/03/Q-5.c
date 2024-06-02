@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int store;
+
 int bin_search2(const int a[],int n,int key)
 {
 	int i;
-	int store;
 	int pl=0;
 	int pr=n-1;
 	
@@ -59,7 +60,7 @@ int main()
 	if(idx==-1)
 		puts("검색에 실패했습니다.");
 	else
-		printf("%d는(은) x[%d]에 있습니다.\n",ky,idx);
+		printf("%d는(은) x[%d]에 있습니다.\n",ky,store);
 	
 	free(x);
 	
