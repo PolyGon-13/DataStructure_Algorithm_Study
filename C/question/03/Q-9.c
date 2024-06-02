@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int store;
+
 int int_cmp(const int *a,const int *b)
 {
 	if(*a<*b)
@@ -14,7 +16,6 @@ int int_cmp(const int *a,const int *b)
 void* binsearch(const void* key,const void* base,size_t nmemb,size_t size,int(*compar)(const void*,const void*))
 {
 	int i;
-	int store;
 	int n=nmemb;
 	int pl=0;
 	int pr=n-1;
@@ -27,7 +28,7 @@ void* binsearch(const void* key,const void* base,size_t nmemb,size_t size,int(*c
 		{
 			for(i=pc;i>=0;i--)
 			{
-				if(((int*)base)[pc]==*(int*)key)
+				if(((int*)base)[i]==*(int*)key)
 					store=i;
 				else
 					break;
