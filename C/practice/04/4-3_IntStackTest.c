@@ -12,9 +12,9 @@ int main()
 	
 	while(1)
 	{
-		int memu,x;
+		int menu,x;
 		printf("현재 데이터 수 : %d / %d\n",Size(&s),Capacity(&s));
-		printf("(1)Push,(2)Pop,(3)Peek,(4)Print,(0)Exit : ");
+		printf("(1)Push, (2)Pop, (3)Peek, (4)Print, (0)Exit : ");
 		scanf("%d",&menu);
 		
 		if(menu==0) 
