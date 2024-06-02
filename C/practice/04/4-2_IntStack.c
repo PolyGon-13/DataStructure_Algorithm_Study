@@ -43,7 +43,7 @@ int Peek(const IntStack* s,int *x)
 	return 0;
 }
 
-int Clear(IntStack* s)
+void Clear(IntStack* s)
 {
 	s->ptr=0;
 }
@@ -73,7 +73,7 @@ int Search(const IntStack* s,int x)
 	int i;
 	
 	for(i=s->ptr-1;i>=0;i--)
-		if(s>stk[i]==x)
+		if(s->stk[i]==x)
 			return i;
 	return -1;
 }
