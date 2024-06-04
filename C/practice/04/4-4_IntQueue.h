@@ -16,7 +16,7 @@ int Enque(IntQueue* q,int x);
 
 int Deque(IntQueue* q,int* x);
 
-int Peek(IntQueue* q,int* x);
+int Peek(const IntQueue* q,int* x);
 
 void Clear(IntQueue* q);
 
