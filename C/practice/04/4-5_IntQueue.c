@@ -22,7 +22,7 @@ int Enque(IntQueue* q,int x)
 	{
 		q->num++;
 		q->que[q->rear++]=x;
-		if(q->rear=q->max)
+		if(q->rear==q->max)
 			q->rear=0;
 		return 0;
 	}
