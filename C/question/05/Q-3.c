@@ -17,7 +17,7 @@ int gcd_array(const int a[],int n)
 	// a[1]의 주소를 보낸다. 따라서 첫 시작 배열이 {2,4,6,8}이었으면, a[1]인 {4}의 주소를 보내므로 {4,6,8}배열로 함수에 인자로 들어가게 된다.
 }
 
-int main(void)
+int main()
 {
 	int i;
 	int nx;
