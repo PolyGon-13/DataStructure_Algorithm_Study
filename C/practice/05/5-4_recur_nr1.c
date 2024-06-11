@@ -10,7 +10,6 @@ Top:
 		n=n-2;
 		goto Top;
 	}
-	
 }
 
 int main()
