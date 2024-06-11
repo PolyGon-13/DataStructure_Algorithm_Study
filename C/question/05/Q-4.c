@@ -15,7 +15,7 @@ int main()
 	int x;
 	printf("정수를 입력하세요: ");
 	scanf("%d",&x);
-	recur(x);
+	recur2(x);
 	
 	return 0;
 }
