@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-static char memo[128][1024];
+static char memo[128][1024]; // static변수 => 자동으로 0으로 초기화시켜줌
 
 void recur(int n)
 {
