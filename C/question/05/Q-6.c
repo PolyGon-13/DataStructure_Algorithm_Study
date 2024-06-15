@@ -57,7 +57,6 @@ void Terminate(IntStack* s)
 	s->max=s->ptr=0;
 }
 
-
 void recur3(int n)
 {
 	IntStack stk;
