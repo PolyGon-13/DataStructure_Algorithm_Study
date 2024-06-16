@@ -75,11 +75,12 @@ void move(int no,int x,int y)
 			Push(&ystk,y);
 			Push(&sstk,sw);
 			no--;
-			y=6-x-y;
-			continue;
+			y=6-x-y; // 기둥번호의 합(1+2+3)이 6이므로 6에서 나머지 기둥의 번호(x,y)를 빼주면 남은 하나의 기둥의 번호를 알 수 있음
+			continue; // while문의 시작으로 돌아감
 		}
 		
 		printf("원반[%d]를 %d 기둥에서 %d 기둥으로 이동\n",no,x,y);
+		// 위의 if문을 만족하지 않더라도 printf는 실행되고 아래의 if문으로 들어감
 		
 		if(sw==1 && no>1)
 		{
@@ -88,7 +89,8 @@ void move(int no,int x,int y)
 			Push(&sstk,sw);
 			no--;
 			x=6-x-y;
-			if(++sw==2) sw=0;
+			if(++sw==2)
+				sw=0;
 			continue;
 		}
 		
@@ -99,6 +101,7 @@ void move(int no,int x,int y)
 			Pop(&xstk,&x);
 			Pop(&ystk,&y);
 			Pop(&sstk,&sw);
+			// Pop하면 현재의 x,y,sw 값이 Pop한 값으로 바뀌는 점 주의
 			sw++;
 			no++;
 		} while(sw==2);
