@@ -76,15 +76,20 @@ void set(int i)
 	Initialize(&stk, 8);
 
 Start:
-	while (1) {
+	while (1) 
+	{
 		j = 0;
-		while (1) {
-			while (j < 8) {
-				if (!flag_a[j] && !flag_b[i + j] && !flag_c[i - j + 7]) {
+		while (1) 
+		{
+			while (j < 8) 
+			{
+				if (!flag_a[j] && !flag_b[i + j] && !flag_c[i - j + 7]) 
+				{
 					pos[i] = j;
 					if (i == 7) // 전체 열 배치 마침
 						print();
-					else {
+					else 
+					{
 						flag_a[j] = flag_b[i + j] = flag_c[i - j + 7] = 1;
 						i++;
 						Push(&stk, j); // i번째 열의 행을 푸시
@@ -93,7 +98,8 @@ Start:
 				}
 				j++;
 			}
-			if (--i == -1) return;
+			if (--i == -1) 
+				return;
 			Pop(&stk, &j); // i번째 열의 행을 팝
 			flag_a[j] = flag_b[i + j] = flag_c[i - j + 7] = 0;
 			j++;
