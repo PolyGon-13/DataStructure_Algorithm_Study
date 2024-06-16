@@ -2,7 +2,7 @@
 
 int pos[8];
 
-void print(void)
+void print()
 {
 	int i;
 	for(i=0;i<8;i++)
