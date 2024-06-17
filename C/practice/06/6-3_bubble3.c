@@ -15,6 +15,7 @@ void bubble(int a[],int n)
 				swap(int,a[j-1],a[j]);
 				last=j;
 			}
+		k=last;
 	}
 }
 
