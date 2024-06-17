@@ -5,10 +5,10 @@
 void bubble(int a[],int n)
 {
 	int i,j;
-	for(i=0;i<n-1;i++)
-		for(j=n-1;j>i;j--)
-			if(a[j-1]>a[j])
-				swap(int,a[j-1],a[j]);
+	for(i=n-1;i>0;i--)
+		for(j=0;j<i;j++) // 끝쪽부터 정렬된 데이터가 쌓이므로 점점 반복횟수가 뒤에서부터 줄어듦
+			if(a[j]>a[j+1])
+				swap(int,a[j],a[j+1]);
 }
 
 int main()
