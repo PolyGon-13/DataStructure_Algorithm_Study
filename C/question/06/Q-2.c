@@ -14,7 +14,7 @@ void bubble(int a[],int n)
 		for(j=n-1;j>i;j--)
 		{
 			for(m=0;m<n-1;m++)
-				printf("%3d %c",a[m],(m!=j-1)?' ':(a[j-1]>a[j])?'+':'-');
+				printf("%3d %c",a[m],(m!=j-1) ? ' ' : (a[j-1]>a[j])?'+':'-'); // 삼항 연산자 2중 중첩을 통해 간편하게 출력 가능
 			printf("%3d\n",a[n-1]);
 			compare++;
 			if(a[j-1]>a[j])
