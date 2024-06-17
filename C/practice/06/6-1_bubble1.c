@@ -5,10 +5,10 @@
 void bubble(int a[],int n)
 {
 	int i,j;
-	for(i=n-1;i>0;i--)
-		for(j=0;j<i;j++) // 끝쪽부터 정렬된 데이터가 쌓이므로 점점 반복횟수가 뒤에서부터 줄어듦
-			if(a[j]>a[j+1])
-				swap(int,a[j],a[j+1]);
+	for(i=0;i<n-1;i++)
+		for(j=n-1;j>i;j--)
+			if(a[j-1]>a[j])
+				swap(int,a[j-1],a[j]);
 }
 
 int main()
@@ -18,21 +18,21 @@ int main()
 	printf("요소 개수 : ");
 	scanf("%d",&nx);
 	int* x=calloc(nx,sizeof(int));
-	
+
 	int i;
 	for(i=0;i<nx;i++)
 	{
 		printf("x[%d] : ",i);
 		scanf("%d",&x[i]);
 	}
-	
+
 	bubble(x,nx);
-	
+
 	puts("오름차순으로 정렬했습니다.");
 	for(i=0;i<nx;i++)
 		printf("x[%d]=%d\n",i,x[i]);
-	
+
 	free(x);
-	
+
 	return 0;
 }
