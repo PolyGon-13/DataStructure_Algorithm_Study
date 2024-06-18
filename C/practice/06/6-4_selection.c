@@ -7,11 +7,11 @@ void selection(int a[],int n)
 	int i,j;
 	for(i=0;i<n-1;i++)
 	{
-		int min=i;
+		int min=i; // 0번째 요소부터 n-2번째 요소(가장 끝 요소 빼고 전부) 돌아가면서 탐색
 		for(j=i+1;j<n;j++)
-			if(a[j]<a[min])
-				min=j;
-		swap(int,a[i],a[min]);
+			if(a[j]<a[min]) // 선택한 요소(min)보다 작은 요소(j)가 발견된 경우
+				min=j; // 가장 작은 요소를 갱신
+		swap(int,a[i],a[min]); // i번째 요소(가장 작은 요소)와 min번째 요소(탈락된 요소)를 교체
 	}
 }
 
