@@ -24,6 +24,7 @@ void bin_insertion(int a[],int n)
                 pr=pc-1;
         } while(pl<=pr);
         pd=(pl<=pr)?pc+1:pr+1;
+        // do문 안에서 어떤 조건을 마지막으로 수행하고 나왔느냐에 따라 삼항 연산자에 의한 결과가 달라짐
         
         for(j=i;j>pd;j--)
             a[j]=a[j-1];
