@@ -21,11 +21,11 @@ void bin_insertion(int a[],int n)
             else if(a[pc]<key)
                 pl=pc+1;
             else
-                pr=pc+1;
+                pr=pc-1;
         } while(pl<=pr);
         pd=(pl<=pr)?pc+1:pr+1;
         
-        for(j=i;i>pd;j--)
+        for(j=i;j>pd;j--)
             a[j]=a[j-1];
         a[pd]=key;
     }
