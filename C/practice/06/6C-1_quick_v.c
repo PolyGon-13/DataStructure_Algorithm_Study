@@ -37,7 +37,7 @@ int main()
 	int i;
 	int nx;
 	puts("퀵 정렬");
-	printf("요소 개수 : ")
+	printf("요소 개수 : ");
 	scanf("%d",&nx);
 	int *x=malloc(nx*sizeof(int));
 	for(i=0;i<nx;i++)
