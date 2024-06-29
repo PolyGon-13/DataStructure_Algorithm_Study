@@ -48,6 +48,7 @@ int main()
     return 0;
 }
 
+
 // Ver.B
 #include <stdio.h>
 #include <stdlib.h>
