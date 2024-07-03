@@ -5,11 +5,15 @@
 int compare_string(const void *a,const void *b)
 {
 	return strcmp((const char *)a,(const char *)b);
+	// 포인터 a를 const char * 타입으로 캐스팅
 }
 
 int compare_string_pointers(const void *a,const void *b)
 {
 	return strcmp(*(const char **)a,*(const char **)b);
+	// 포인터 a가 가리키는 메모리 주소에 있는 값
+	// char *은 문자열을 가리키는 포인터를 의미
+	// char **은 문자열 포인터를 가리키는 포인터를 의미
 }
 
 int main()
