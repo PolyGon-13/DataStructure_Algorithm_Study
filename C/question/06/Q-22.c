@@ -8,7 +8,7 @@ void counting(int a[],int n,int min,int max)
 	int *b=calloc(n,sizeof(int));
 	
 	for(i=0;i<=max-min+1;i++) f[i]=0;
-	for(i=0;i<n;i++) f[a[i]-min]++;
+	for(i=0;i<n;i++) f[a[i]-min]++; // 최솟값이 7이라면, 7을 0번째 인덱스에 해당하게 만드는 과정
 	for(i=1;i<=max-min+1;i++) f[i]+=f[i-1];
 	for(i=n-1;i>=0;i--) b[--f[a[i]-min]]=a[i];
 	for(i=0;i<n;i++) a[i]=b[i];
