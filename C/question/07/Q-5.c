@@ -4,8 +4,7 @@ const char* str_chr(const char *s,int c)
 {	
 	while(*s!='\0')
 	{
-		if(*s==(char)c)
-			
+		if(*s==(char)c)	
 			return s;
 		s++;
 	}
