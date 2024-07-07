@@ -13,7 +13,7 @@ int main()
 		scanf("%s",st);
 		if(strncmp("XXXX",st,3)==0)
 			break;
-		printf("strncmp(\"STRING\",st,3) =%d\n",strncmp("STRING",st,3));
+		printf("strncmp(\"STRING\",st,3) = %d\n",strncmp("STRING",st,3));
 	}
 	
 	return 0;
