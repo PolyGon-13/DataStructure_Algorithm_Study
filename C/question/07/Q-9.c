@@ -1,59 +1,87 @@
-#include <stdio.h>
+ #include <stdio.h>
+ #include <stdlib.h>
 
-int bf_match(const char txt[], const  char pat[]) 
+int str_cmpic(const char *s1, const char *s2) 
 {
-     int pt = 0;
-     int pp = 0;
-     int counter = 0;
-     
-     while(txt[pt] != '\0' && pat[pp] != '\0') 
+     while(abs(*s1-*s2) == 32 || *s1 == *s2) // 두 문자의 차이를 구해서 32(대문자와 소문자의 차이)라면 같은 문자로 취급
 	 {
-         if(pp == 0)
-             printf("%2d ", counter++);
-         else
-             printf("%*s", 3, " ");
-
-         printf("%s\n", txt);
-         printf("%*s", 3 + pt, " ");
-         
-         if(txt[pt] == pat[pp]) 
-		 {
-             pt++;
-             pp++;
-             putchar('+');
-         } 
-		 else
-		 {
-             pt = pt - pp + 1; // 현재 텍스트의 위치+1
-             pp = 0;
-             putchar('|');
-         }
-         putchar('\n');
-         printf("%*s%s\n", 3 + counter - 1, " ", pat);
+         if(*s1 == '\0')
+             return 0;
+         s1++;
+         s2++;
      }
 	 
-     if(pat[pp] == '\0')
-         return pt - pp;
-	 
-     return -1;
+     return *s1-*s2;
+}
+
+int str_ncmpic(const char *s1, const char *s2, size_t n) 
+{
+     while((abs(*s1-*s2)==32 || *s1 == *s2) && (*s1!='\0' && *s2!='\0')) 
+	 {
+         n--;
+         
+         if(n == 0) // 모든 문자가 같은 경우
+             return 0;
+         
+         s1++;
+         s2++;
+     }
+     return *s1 - *s2;
 }
 
 int main() 
 {
-     int idx;
-     char s1[256];
-     char s2[256];
-     puts("브루트 포스법");
-     printf("텍스트 : ");
-     scanf("%s", s1);
-     printf("패턴 : ");
-     scanf("%s", s2);
+     char st[128];
+     int sz;
+     puts("\"ABCD\"와 비교합니다.");
+     puts("\"XXXX\"면 종료합니다.");
      
-     idx = bf_match(s1, s2);
-     if(idx == -1)
-         puts("텍스트에 패턴이 없습니다.");
-     else
-         printf("%d번째 문자부터 match합니다.\n", idx + 1);
-     
+     while(1) {
+         printf("문자열 st : ");
+         scanf("%s", st);
+         
+         printf("비교할 갯수 : ");
+         scanf("%d", &sz);
+         
+         
+         if(str_ncmpic("XXXX", st, sz) == 0)
+             break;
+         printf("str_ncmpic(\"ABCD\", st, sz) = %d\n", str_ncmpic("ABCD", st, sz));
+     }
      return 0;
 }
+
+
+// toupper 함수를 사용해서 해결하는 풀이도 가능
+/*
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int str_cmpic(const char *s1, const char *s2)
+{
+	while (toupper(*s1) == toupper(*s2)) 
+	{
+		if (*s1 == '\0')			
+			return 0;
+		s1++;
+		s2++;
+	}
+	return (unsigned char)toupper(*s1) - (unsigned char)toupper(*s2);
+}
+
+int str_ncmpic(const char *s1, const char *s2, size_t n)
+{
+	while (n && *s1 && *s2) 
+	{
+		if (toupper(*s1) != toupper(*s2))			
+			return (unsigned char)toupper(*s1) - (unsigned char)toupper(*s2);
+		s1++;
+		s2++;
+		n--;
+	}
+	if (!n)  return 0;
+	if (*s1) return toupper(*s1);
+	return toupper(*s2);
+}
+*/
