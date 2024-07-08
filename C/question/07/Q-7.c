@@ -4,10 +4,10 @@ int str_ncmp(const char *s1,const char *s2,int n)
 {
 	int i;
     for(i=0;i<n;++i)
-        if(s1[i]!=s2[i] || s1[i]=='\0' || s2[i]=='\0')
+        if(s1[i]!=s2[i] || s1[i]=='\0' || s2[i]=='\0') // i번째 문자가 다르거나, 문자열의 끝에 도달했을 때
             return (unsigned char)s1[i]-(unsigned char)s2[i];
 	
-    return 0;
+    return 0; // 두 문자열이 같은 경우
 }
 
 int main()
