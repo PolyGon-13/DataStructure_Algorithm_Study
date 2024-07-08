@@ -18,8 +18,8 @@ int str_cmpic(const char *s1,const char *s2)
 	while(*s1 && *s2)
 	{
 		int diff=compare(*s1,*s2);
-		if(diff!=0)
-			return diff;
+		if(*s1=='\0')
+			return 0;
 		s1++;
 		s2++;
 	}
