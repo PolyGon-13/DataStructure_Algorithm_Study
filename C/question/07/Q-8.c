@@ -1,5 +1,5 @@
- #include <stdio.h>
- #include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int str_cmpic(const char *s1, const char *s2) 
 {
