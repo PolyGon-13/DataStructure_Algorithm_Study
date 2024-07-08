@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int str_ncmpic(const char *s1,const char *s2,int n)
+int str_ncmp(const char *s1,const char *s2,int n)
 {
 	int i;
     for(i=0;i<n;++i)
@@ -22,7 +22,7 @@ int main()
         scanf("%s", st);
         if (str_ncmp("XXXX", st, 3)==0)
             break;
-        printf("str_ncmp(\"STRING\", st, 3) = %d%2d\n",str_cmpic("STRING",st),str_ncmpic("STRING",st,3));
+        printf("str_ncmp(\"STRING\", st, 3) = %d\n",str_ncmp("STRING",st,3));
     }
     
     return 0;
