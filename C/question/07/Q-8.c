@@ -1,63 +1,87 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+
+int str_cmpic(const char *s1, const char *s2) 
+{
+     while(abs(*s1-*s2) == 32 || *s1 == *s2) // 두 문자의 차이를 구해서 32(대문자와 소문자의 차이)라면 같은 문자로 취급
+	 {
+         if(*s1 == '\0')
+             return 0;
+         s1++;
+         s2++;
+     }
+	 
+     return *s1-*s2;
+}
+
+int str_ncmpic(const char *s1, const char *s2, size_t n) 
+{
+     while((abs(*s1-*s2)==32 || *s1 == *s2) && (*s1!='\0' && *s2!='\0')) 
+	 {
+         n--;
+         
+         if(n == 0) // 모든 문자가 같은 경우
+             return 0;
+         
+         s1++;
+         s2++;
+     }
+     return *s1 - *s2;
+}
+
+int main() 
+{
+     char st[128];
+     int sz;
+     puts("\"ABCD\"와 비교합니다.");
+     puts("\"XXXX\"면 종료합니다.");
+     
+     while(1) {
+         printf("문자열 st : ");
+         scanf("%s", st);
+         
+         printf("비교할 갯수 : ");
+         scanf("%d", &sz);
+         
+         
+         if(str_ncmpic("XXXX", st, sz) == 0)
+             break;
+         printf("str_ncmpic(\"ABCD\", st, sz) = %d\n", str_ncmpic("ABCD", st, sz));
+     }
+     return 0;
+}
+
+
+// toupper 함수를 사용해서 해결하는 풀이도 가능
+/*
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
-char upper(char c)
+int str_cmpic(const char *s1, const char *s2)
 {
-	if(c>='a' && c<='z')
-		return c-32;
-	else
-		return c;
-}
-
-int compare(char c1,char c2)
-{
-	return upper(c1)-upper(c2);
-}
-
-int str_cmpic(const char *s1,const char *s2)
-{
-	while(*s1 && *s2)
+	while (toupper(*s1) == toupper(*s2)) 
 	{
-		int diff=compare(*s1,*s2);
-		if(*s1=='\0')
+		if (*s1 == '\0')			
 			return 0;
 		s1++;
 		s2++;
 	}
-	
-	return compare(*s1,*s2);
+	return (unsigned char)toupper(*s1) - (unsigned char)toupper(*s2);
 }
 
-int str_ncmpic(const char *s1,const char *s2,int n)
+int str_ncmpic(const char *s1, const char *s2, size_t n)
 {
-	int i;
-	for(i=0;i<n;++i)
+	while (n && *s1 && *s2) 
 	{
-		if(*s1=='\0' || *s2=='\0')
-			return compare(*s1,*s2);
-		int diff=compare(*s1,*s2);
-		if(diff!=0)
-			return diff;
+		if (toupper(*s1) != toupper(*s2))			
+			return (unsigned char)toupper(*s1) - (unsigned char)toupper(*s2);
 		s1++;
 		s2++;
+		n--;
 	}
-	
-	return 0;
+	if (!n)  return 0;
+	if (*s1) return toupper(*s1);
+	return toupper(*s2);
 }
-
-int main()
-{
-    char st[128];
-    puts("\"STRING\"의 처음 3개의 문자와 비교합니다.");
-    puts("\"XXXX\"를 입력하면 종료합니다.");
-    
-    while(1)
-    {
-        printf("문자열 st : ");
-        scanf("%s",st);
-        if(str_ncmpic("XXXX",st,3)==0)
-            break;
-        printf("%d %d\n",str_cmpic("STRING",st),str_ncmpic("STRING",st,3));
-    }
-    
-    return 0;
-}
+*/
