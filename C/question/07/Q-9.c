@@ -1,7 +1,7 @@
 #include <stdio.h>
 
- int bf_match(const char txt[], const  char pat[]) 
- {
+int bf_match(const char txt[], const  char pat[]) 
+{
      int pt = 0;
      int pp = 0;
      int counter = 0;
@@ -36,10 +36,10 @@
          return pt - pp;
 	 
      return -1;
- }
+}
 
- int main() 
- {
+int main() 
+{
      int idx;
      char s1[256];
      char s2[256];
@@ -56,4 +56,4 @@
          printf("%d번째 문자부터 match합니다.\n", idx + 1);
      
      return 0;
- }
+}
