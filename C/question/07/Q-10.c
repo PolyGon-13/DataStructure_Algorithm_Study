@@ -12,22 +12,21 @@ int bf_match(const char txt[], const  char pat[])
      while(pat[pp] != '\0')
          pp++;
      
-     pp_last = pp - 1; // pat의 끝자리
+     pp_last = pp - 1;
      
-     //시작은 각 문자열의 널문자부터인데 딱히 상관없을듯.
-     while(pt >= 0 && pp >= 0) 
+	 while(pt >= 0 && pp >= 0) 
 	 {
-         if(txt[pt] == pat[pp]) 
+		 if(txt[pt] == pat[pp]) 
 		 {
-             pt--;
-             pp--;
-         } 
+			 pt--;
+			 pp--;
+		 }
 		 else 
 		 {
-             pt = pt + pp_last - 1;
-             pp = pp_last;
-         }
-     }
+			 pt = pt + pp_last - 1;
+			 pp = pp_last;
+		 }
+	 }
 	
      if(pp == -1)
          return pt + 1;
