@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
-int str_ncmp(const char *s1, const char *s2, size_t n)
+int str_ncmp(const char *s1,const char *s2,int n)
 {
-    for(size_t i=0;i<n;++i)
-        if(s1[i]!=s2[i] || s1[i]=='\0' || s2[i]=='\0')
+    for(int i=0;i<n;++i)
+        if(s1[i]!=s2[i] || s1[i]=='\0' || s2[i]=='\0') // i번째 문자가 다르거나, 문자열의 끝에 도달했을 때
             return (unsigned char)s1[i]-(unsigned char)s2[i];
 	
-    return 0;
+    return 0; // 두 문자열이 같은 경우
 }
 
 int main()
@@ -20,9 +20,9 @@ int main()
     {
         printf("문자열 st : ");
         scanf("%s", st);
-        if (str_ncmp("XXXX", st, 3) == 0)
+        if (str_ncmp("XXXX", st, 3)==0)
             break;
-        printf("str_ncmp(\"STRING\", st, 3) = %d\n", str_ncmp("STRING", st, 3));
+        printf("str_ncmp(\"STRING\", st, 3) = %d\n", str_ncmp("STRING",st,3));
     }
     
     return 0;
