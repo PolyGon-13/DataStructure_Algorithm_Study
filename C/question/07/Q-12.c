@@ -6,23 +6,24 @@ void _print(const char txt[],const char pat[],int txt_len,int pat_len,int pt,int
 {
 	int i=0,k=0;
 	
-	if(pp!=pat_len-1)
-		printf("   ");
-	else
+	if(pp!=pat_len-1) // 현재 패턴 커서가 가장 처음(패턴 배열의 마지막 요소)을 가리키고 있지 않을 때
+		printf("    ");
+	else // 패턴 커서가 가장 처음을 가리키고 있을 때
 	{
-		printf("%2d ",pt-pp);
+		printf("%2d  ",pt-pp); 
+		// 텍스트 커서에서 패턴 커서를 뺀 값 = 현재 텍스트 커서의 위치를 마지막으로 하는 패턴 배열만큼의 길이
 		k=pt-pp;
 	}
 	
 	for(i=0;i<txt_len;i++)
-		printf("%c",txt[i]);
+		printf("%c ",txt[i]); // 텍스트 배열 출력
 	putchar('\n');
 	
 	printf("%*s%c\n",pt*2+4,"",(txt[pt]==pat[pp]) ? '+' : '|');
 	
 	printf("%*s",(pt-pp)*2+4,"");
 	for(i=0;i<pat_len;i++)
-		printf("%c",pat[i]);
+		printf("%c ",pat[i]);
 	printf("\n\n");
 }
 
@@ -35,16 +36,22 @@ int bm_match(const char txt[],const char pat[])
 	
 	for(pt=0;pt<=UCHAR_MAX;pt++)
 		skip[pt]=pat_len;
+	// unsigned char형으로 출력할 수 있는 모든 문자의 개수만큼 배열의 크기로 설정하고 모든 인덱스의 요소를 패턴의 크기로 설정
+	
 	for(pt=0;pt<pat_len-1;pt++)
-		skip[pat[pt]]=pat_len-pt-1;
+		skip[pat[pt]]=pat_len-pt-1; 
+	//skip 배열에서 pat[pt]는 패턴의 문자를 의미하므로 패턴에 들어있는 문자만을 이용하고 있음
+	// 마지막에 나오는 위치의 인덱스가 k이면 패턴을 옮길 크기는 n-k-1
+	
 	
 	while(pt<txt_len)
 	{
-		pp=pat_len-1;
+		pp=pat_len-1; // 길이는 1부터 시작하지만, 배열의 인덱스는 0부터 시작하기 때문
 		while(_print(txt,pat,txt_len,pat_len,pt,pp),txt[pt]==pat[pp])
+		// _print함수를 먼저 실행하고 txt[pt]==pat[pp]를 평가
 		{
-			if(pp==0)
-				return pt;
+			if(pp==0) // 모든 패턴을 만족시켜 패턴의 앞쪽 끝에 도달한 경우
+				return pt; // 현재 텍스트를 가리키고 있는 커서를 반환
 			pp--;
 			pt--;
 		}
