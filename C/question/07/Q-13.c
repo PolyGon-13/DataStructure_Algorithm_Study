@@ -32,6 +32,7 @@ char *bm_match(const char txt[],const char pat[])
 
 int main()
 {
+	char *idx;
 	char s1[256];
 	char s2[256];
 	puts("보이어-무어법");
@@ -40,11 +41,11 @@ int main()
 	printf("패턴 : ");
 	scanf("%s",s2);
 	
-	int idx=bm_match(s1,s2);
+	idx=bm_match(s1,s2);
 	if(idx==-1)
 		puts("텍스트에 패턴이 없습니다.");
 	else
-		printf("%d번째 문자부터 match합니다.\n",idx+1);
+		printf("%d번째 문자부터 match합니다.\n",idx-s1+1);
 	
 	return 0;
 }
