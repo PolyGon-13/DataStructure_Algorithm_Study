@@ -87,6 +87,7 @@ int main()
 				break;
 		}
 	} while(menu!=TERMINATE);
+	
 	Terminate(&list);
 	
 	return 0;
