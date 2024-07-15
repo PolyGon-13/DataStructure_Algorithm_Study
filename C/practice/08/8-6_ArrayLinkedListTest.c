@@ -68,14 +68,14 @@ int main()
 				break;
 			case SRCH_NO:
 				x=ScanMember("검색",MEMBER_NO);
-				if(Search(&list,&x,MemberNoCmp)!=NULL)
+				if(search(&list,&x,MemberNoCmp)!=Null)
 					PrintLnCurrent(&list);
 				else
 					puts("그 번호의 데이터가 없습니다.");
 				break;
 			case SRCH_NAME:
 				x=ScanMember("검색",MEMBER_NAME);
-				if(Search(&list,&x,MemberNameCmp)!=NULL)
+				if(search(&list,&x,MemberNameCmp)!=Null)
 					PrintLnCurrent(&list);
 				else
 					puts("그 이름의 데이터가 없습니다.");
