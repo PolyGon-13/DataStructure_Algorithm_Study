@@ -6,13 +6,13 @@
 typedef struct __node
 {
 	Member data;
-	struct __node *next; // 뒤쪽 포인터 (다음 노드에 대한 포인터)
+	struct __node *next;
 } Node;
 
 typedef struct
 {
-	Node *head; // 머리 노드에 대한 포인터
-	Node *crnt; // 선택한 노드에 대한 포인터
+	Node *head;
+	Node *crnt;
 } List;
 
 void Initialize(List *list);
