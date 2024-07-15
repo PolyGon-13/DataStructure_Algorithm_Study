@@ -173,7 +173,7 @@ void Purge(List *list,int compare(const Member *x,const Member *y))
 	Index ptr=list->head;
 	Index next_ptr;
 	
-	while(ptr!=Null)
+	while(ptr!=Null) // 머리노드부터 차례대로 중복되는 노드가 있는지 검사
 	{
 		next_ptr=list->n[ptr].next;
 		
@@ -181,12 +181,12 @@ void Purge(List *list,int compare(const Member *x,const Member *y))
 		{
 			if(compare(&list->n[ptr].data,&list->n[next_ptr].data)==0)
 			{
-				list->crnt=next_ptr;
+				list->crnt=next_ptr; // 중복되는 노드를 현재 커서에 위치
 				RemoveCurrent(list);
 			}
-			next_ptr=list->n[next_ptr].next;
+			next_ptr=list->n[next_ptr].next; // ptr과 동일하지 않다면 다음 노드로 이동
 		}
-		ptr=list->n[ptr].next;
+		ptr=list->n[ptr].next; // ptr과 중복되는 노드를 모두 검사하였다면 다음 노드로 이동하여 검사
 	}
 	list->crnt=list->head;
 }
