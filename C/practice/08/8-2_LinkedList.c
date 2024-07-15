@@ -8,7 +8,7 @@ static Node *AllocNode(void)
 	return calloc(1,sizeof(Node));
 }
 
-static void SetNode(Node *n,const Member *x,const Node *next)
+static void SetNode(Node *n,const Member *x,Node *next) // 원래 const Node *next인데 const형에만 const형을 대입할 수 있다고해서 const를 지움
 {
 	n->data=*x;
 	n->next=next;
@@ -49,7 +49,7 @@ void InsertFront(List *list,const Member *x)
 void InsetRear(List *list,const Member *x)
 {
 	if(list->head==NULL)
-		InsetFront(list,x);
+		InsertFront(list,x);
 	else
 	{
 		Node *ptr=list->head;
