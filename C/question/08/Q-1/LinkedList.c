@@ -26,10 +26,6 @@ Node *Search(List *list,const Member *x,int compare(const Member *x,const Member
 	while(ptr!=NULL)
 	{
 		if(compare(&ptr->data,x)==0)
-		// 함수 포인터
-		// 이전에 선언된 함수가 int형을 반환하고 char형 변수를 매개변수로 받는 int (char) 함수라면, int (*p)(char)로 함수 포인터를 선언할 수 있음
-		// Member.h에 선언된 MemberNoCmp, MemberNameCmp 함수를 compare함수는 사용하고 있는 것
-		// 데이터 포인터는 &를 붙여주는게 좋음 (안 붙여도 동작은 한다고 함)
 		{
 			list->crnt=ptr;
 			return ptr;
@@ -131,6 +127,22 @@ void PrintLnCurrent(const List *list)
 	putchar('\n');
 }
 
+void Print(const List *list)
+{
+	if(list->head==NULL)
+		puts("노드가 없습니다.");
+	else
+	{
+		Node *ptr=list->head;
+		puts("[모두 보기]");
+		while(ptr!=NULL)
+		{
+			PrintLnMember(&ptr->data);
+			ptr=ptr->next;
+		}
+	}
+}
+
 void Purge(List *list,int compare(const Member *x,const Member *y))
 {
 	Node *ptr=list->head;
@@ -152,22 +164,6 @@ void Purge(List *list,int compare(const Member *x,const Member *y))
 		ptr=ptr->next; // NULL이 되어버린 노드의 앞 노드는 next_ptr이 가리키게 된 새로운 노드를 가리키게 함
 	}
 	list->crnt=list->head;
-}
-
-void Print(const List *list)
-{
-	if(list->head==NULL)
-		puts("노드가 없습니다.");
-	else
-	{
-		Node *ptr=list->head;
-		puts("[모두 보기]");
-		while(ptr!=NULL)
-		{
-			PrintLnMember(&ptr->data);
-			ptr=ptr->next;
-		}
-	}
 }
 
 void Terminate(List *list)
