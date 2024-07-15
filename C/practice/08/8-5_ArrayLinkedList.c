@@ -65,7 +65,6 @@ void InsertFront(List *list,const Member *x)
 	Index ptr=list->head;
 	list->head=list->crnt=GetIndex(list);
 	SetNode(&list->n[list->head],x,ptr);
-	// 초기에는 list->head에 대한 인덱스 1과 list->head가 가리키는 다음 데이터인 x를 저장
 }
 
 void InsertRear(List *list,const Member *x)
