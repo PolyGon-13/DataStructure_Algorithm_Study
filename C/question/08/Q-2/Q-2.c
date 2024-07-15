@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "Member.h"
-#include "ArrayLinkedList.h"
+#include "LinkedList.h"
 
 typedef enum
 {
