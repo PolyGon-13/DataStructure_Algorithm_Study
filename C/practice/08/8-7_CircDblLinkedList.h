@@ -22,7 +22,7 @@ void PrintLnCurrent(const Dlist *list);
 Dnode *Search(Dlist *list,const Member *x,int compare(const Member *x,const Member *y));
 void Print(const Dlist *list);
 void PrintReverse(const Dlist *list);
-int Next(Dist *list);
+int Next(Dlist *list);
 int Prev(Dlist *list);
 void InsertAfter(Dlist *list,Dnode *p,const Member *x);
 void InsertFront(Dlist *list,const Member *x);
