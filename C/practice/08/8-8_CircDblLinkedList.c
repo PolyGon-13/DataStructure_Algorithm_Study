@@ -8,7 +8,7 @@ static Dnode *AllocDNode(void)
 	return calloc(1,sizeof(Dnode));
 }
 
-static void SetDNode(Dnode *n,const Member *x,const Dnode *prev,const Dnode *next)
+static void SetDNode(Dnode *n,const Member *x,Dnode *prev,Dnode *next)
 {
 	n->data=*x;
 	n->prev=prev;
@@ -105,14 +105,13 @@ int Prev(Dlist *list)
 	return 1;
 }
 
-void InsertAfter(Dist *list,Dnode *p,const Member *x)
+void InsertAfter(Dlist *list,Dnode *p,const Member *x)
 {
-	Dnode *ptr=AllocDNode();
-	
 	Dnode *ptr=AllocDNode();
 	Dnode *nxt=p->next;
 	p->next=p->next->prev=ptr;
-	SetNode(ptr,x,p,nxt);
+	SetDNode(ptr,x,p,nxt);
+	list->crnt=ptr;
 }
 
 void InsetFront(Dlist *list,const Member *x)
@@ -134,4 +133,34 @@ void Remove(Dlist *list,Dnode *p)
 	
 	if(list->crnt==list->head)
 		list->crnt=list->head->next;
+}
+
+void RemoveFront(Dlist *list)
+{
+	if(!IsEmpty(list))
+		Remove(list,list->head->next);
+}
+
+void RemoveRear(Dlist *list)
+{
+	if(!IsEmpty(list))
+		Remove(list,list->head->prev);
+}
+
+void RemoveCurrent(Dlist *list)
+{
+	if(list->crnt!=list->head)
+		Remove(list,list->crnt);
+}
+
+void Clear(Dlist *list)
+{
+	while(!IsEmpty(list))
+		RemoveFront(list);
+}
+
+void Terminate(Dlist *list)
+{
+	Clear(list);
+	free(list->head);
 }
