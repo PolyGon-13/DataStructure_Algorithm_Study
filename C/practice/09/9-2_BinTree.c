@@ -47,3 +47,67 @@ BinNode *Add(BinNode *p,const Member *x)
 	
 	return p;
 }
+
+int Remove(BinNode **root,const Member *x)
+{
+	BinNode *next *temp;
+	BinNode **left;
+	BinNode **p=root;
+	
+	while(1)
+	{
+		int cond;
+		
+		if(p==NULL)
+		{
+			printf("[오류] %d는 등록되어 있지 않습니다.\n",x->no);
+			return -1;
+		}
+		else if((cond=MemberNocmp(x,&(*p)->data))==0)
+			break;
+		else if(cond<0)
+			p=&((*p)->left);
+		else
+			p=&((*p)->right);
+	}
+	
+	if((*p)->left==NULL)
+		next=(*p)->right;
+	else
+	{
+		left=&((*p)->left);
+		
+		while((*left)->right!=NULL)
+			left=&(*left)->right;
+		next=*left;
+		*left=(*left)->left;
+		next->left=(*p)->left;
+		next->right=(*p)->right;
+	}
+	
+	temp=*p;
+	*p=next;
+	free(temp);
+	
+	return 0;
+}
+
+void PrintTree(const BinNode *p)
+{
+	if(p!=NULL)
+	{
+		PrintTree(p->left);
+		PrintLnMember(&p->data);
+		PrintTree(p->right);
+	}
+}
+
+void FreeTree(BinNode *p)
+{
+	if(p!=NULL)
+	{
+		FreeTree(p->left);
+		FreeTree(p->right);
+		free(p);
+	}
+}
