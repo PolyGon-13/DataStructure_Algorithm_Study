@@ -46,12 +46,14 @@ Dnode *Search(Dlist *list,const Member *x,int compare(const Member *x,const Memb
 	Dnode *ptr=list->head->next;
 	
 	while(ptr!=list->head)
+	{
 		if(compare(&ptr->data,x)==0)
 		{
 			list->crnt=ptr;
 			return ptr;
 		}
-	ptr=ptr->next;
+		ptr=ptr->next;
+	}
 	
 	return NULL;
 }
