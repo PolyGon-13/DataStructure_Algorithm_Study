@@ -38,7 +38,7 @@ Menu SelectMenu(void)
 int main()
 {
 	Menu menu;
-	List list;
+	Dlist list;
 	Initialize(&list);
 	do
 	{
