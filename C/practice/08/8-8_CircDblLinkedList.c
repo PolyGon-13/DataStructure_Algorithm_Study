@@ -116,7 +116,7 @@ void InsertAfter(Dlist *list,Dnode *p,const Member *x)
 	list->crnt=ptr;
 }
 
-void InsetFront(Dlist *list,const Member *x)
+void InsertFront(Dlist *list,const Member *x)
 {
 	InsertAfter(list,list->head,x);
 }
