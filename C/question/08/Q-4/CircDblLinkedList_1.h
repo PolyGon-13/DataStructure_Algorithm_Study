@@ -6,8 +6,8 @@
 typedef struct __node
 {
 	Member data;
-	struct __node *prev; // 앞쪽 노드에 대한 포인터
-	struct __node *next; // 다음 노드에 대한 포인터
+	struct __node *prev;
+	struct __node *next;
 } Dnode;
 
 typedef struct
