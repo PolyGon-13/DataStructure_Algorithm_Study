@@ -1,1 +1,64 @@
+#include <stdio.h>
+#include "Member.h"
+#include "BinTree.h"
 
+typedef enum
+{
+    TERMINATE,ADD,REMOVE,SEARCH,MIN,MAX,PRINT
+} Menu;
+
+Menu SelectMenu(void)
+{
+    int ch;
+
+    do
+    {
+        printf("(1)삽입 (2)삭제 (3)검색 (4) 가장 작은 키값 (5) 가장 큰 키값 (6)출력 (0)종료 : ");
+        scanf("%d",&ch);
+    } while(ch<TERMINATE || ch>PRINT);
+
+    return (Menu)ch;
+}
+
+int main()
+{
+    Menu menu;
+    BinNode *root=NULL;
+
+    do
+    {
+        Member x;
+        BinNode *temp;
+
+        switch(menu=SelectMenu())
+        {
+            case ADD:
+                x=ScanMember("삽입",MEMBER_NO || MEMBER_NAME);
+                root=Add(root,&x);
+                break;
+            case REMOVE:
+                x=ScanMember("삭제",MEMBER_NO);
+                Remove(&root,&x);
+                break;
+            case SEARCH:
+                x=ScanMember("검색",MEMBER_NO);
+                if((temp=Search(root,&x))!=NULL)
+                    PrintLnMember(&temp->data);
+                break;
+            case MIN:
+                GetMinNode(root);
+                break;
+            case MAX:
+                GetMaxNode(root);
+                break;
+            case PRINT:
+                puts("[모든 노드 출력]");
+                PrintTree(root);
+                break;
+        }
+    } while(menu!=TERMINATE);
+
+    FreeTree(root);
+
+    return 0;
+} 
