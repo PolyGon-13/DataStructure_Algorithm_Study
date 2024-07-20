@@ -64,3 +64,63 @@ int Add(ChainHash *h,const Member *x)
     h->table[key]=temp;
     return 0;
 }
+
+int Remove(ChainHash *h,const Member *x)
+{
+    int key=hash(x->no,h->size); // 삭제하는 데이터의 해시값
+    Node *p=h->table[key]; // 현재 선택한 노드
+    Node **pp=&h->table[key]; // 현재 선택한 노드에 대한 포인터
+
+    while(p!=NULL)
+    {
+        if(p->data.no==x->no)
+        {
+            *pp=p->next;
+            free(p);
+            return 0;
+        }
+        pp=&p->next;
+        p=p->next;
+    }
+
+    return 1;
+}
+
+void Dump(const ChainHash *h)
+{
+    int i;
+    for(i=0;i<h->size;i++)
+    {
+        Node *p=h->table[i];
+        printf("%02d  ",i);
+        while(p!=NULL)
+        {
+            printf("->%d (%s)  ",p->data.no,p->data.name);
+            p=p->next;
+        }
+        putchar('\n');
+    }
+}
+
+void Clear(ChainHash *h)
+{
+    int i;
+    for(i=0;i<h->size;i++)
+    {
+        Node *p=h->table[i];
+        while(p!=NULL)
+        {
+            Node *next=p->next;
+            free(p);
+            p=next;
+        }
+        h->table[i]=NULL;
+    }
+}
+
+void Terminate(ChainHash *h)
+{
+    Clear(h);
+    free(h->table);
+    h->size=0;
+}
