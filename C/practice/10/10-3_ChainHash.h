@@ -5,14 +5,14 @@
 
 typedef struct __node
 {
-    Member data;
-    struct __node *next;
+    Member data; // 데이터
+    struct __node *next; // 다음 노드에 대한 포인터
 } Node;
 
 typedef struct
 {
-    int size;
-    Node **table;
+    int size; // 해시 테이블의 크기
+    Node **table; // 해시 테이블의 첫 번째 요소에 대한 포인터
 } ChainHash;
 
 int Initialize(ChainHash *h,int size);
