@@ -13,6 +13,7 @@ typedef struct
 {
     int size; // 해시 테이블의 크기
     Node **table; // 해시 테이블의 첫 번째 요소에 대한 포인터
+    // 생성하는 배열의 요소가 Node *형이기 때문에 이것을 가리키기 위해 Node **형이 선언됨
 } ChainHash;
 
 int Initialize(ChainHash *h,int size);
