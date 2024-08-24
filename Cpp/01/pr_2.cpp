@@ -4,7 +4,7 @@
 
 using namespace std;
 
-template<typename ... Args>
+template<typename... Args>
 auto build_array(Args&&... args) -> array<typename common_type <Args...>::type, sizeof...(args)>
 {
 	using commonType=typename common_type<Args...>::type;
