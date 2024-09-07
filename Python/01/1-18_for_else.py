@@ -8,5 +8,5 @@ for _ in range(n):
     if r==13:
         print('\n프로그램을 중단합니다.')
         break
-else:
+else: # 반복문 뒤의 else문은 정상적으로 종료되었을 때 실행
     print('\n난수 생성을 종료합니다.')
