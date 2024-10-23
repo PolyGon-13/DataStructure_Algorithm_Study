@@ -203,11 +203,7 @@ struct playlist
 };
 
 int main()
-{
-	ios::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-	
+{	
 	playlist p1;
 	p1.insert(1);
 	p1.insert(2);
