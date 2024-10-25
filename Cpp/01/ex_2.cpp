@@ -114,6 +114,7 @@ struct game
 	
 	void playOneRound()
 	{
+		// 2장 동일->2장 삭제, 3장 동일->2장 삭제, 4장 동일->4장 삭제 => 2개씩 나눠서 비교
 		if(compareAndRemove(player1,player2))
 		{
 			compareAndRemove(player3,player4);
