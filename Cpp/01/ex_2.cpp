@@ -24,7 +24,7 @@ struct card
 	{
 		ostringstream os; // 숫자나 객체 데이터를 문자열로 변환하는데 사용 (os는 임시 문자열 버퍼 역할을 수행)
 		
-		if(number>0 && number<=10)
+		if(number>1 && number<=10)
 			os<<number; // 위 조건을 만족하면 ostringstream에 해당 숫자를 추가
 		else
 		{
